@@ -1,0 +1,26 @@
+# Compiled binary / build artifacts
+noCAPs2withCAPs
+*.o
+*.mod
+
+# Gaussian data files and outputs (never commit — large, regenerable)
+*.mat
+*.chk
+*.gjf
+*.log
+*.err
+
+# Generated CAP output
+CAP_Mat.mat
+CAP_r*.mat
+CAP_r*.log
+
+# Real (non-example) input lists
+input.txt
+input2.txt
+
+# Editor / OS cruft
+*.swp
+*~
+.DS_Store
+.claude/
