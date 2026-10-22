@@ -1,0 +1,366 @@
+{
+  "benchmark_passed": true,
+  "reference": {
+    "energy_hartree": 0.11667573218866191,
+    "imaginary_energy_hartree": -0.008846229459262629,
+    "energy_ev": 3.1749084141183173,
+    "width_hartree": 0.017692458918525257,
+    "width_ev": 0.48143633327314206,
+    "lifetime_au": 56.5212560111093,
+    "lifetime_fs": 1.3671838028424963
+  },
+  "results": [
+    {
+      "basis_count": 48,
+      "onset": 4.0,
+      "rank": {
+        "total": 48,
+        "retained": 39,
+        "discarded": 9,
+        "relative_cutoff": 1e-10,
+        "min_eigenvalue": 1.6830752815721998e-12
+      },
+      "selected": {
+        "eta": 0.0006385947871140399,
+        "raw": {
+          "energy_hartree": 0.11673629410835736,
+          "imaginary_energy_hartree": -0.008878163996379864,
+          "energy_ev": 3.176556387906948,
+          "width_hartree": 0.017756327992759727,
+          "width_ev": 0.48317429932130945,
+          "lifetime_au": 56.31795044604703,
+          "lifetime_fs": 1.362266076394127
+        },
+        "corrected": {
+          "energy_hartree": 0.11654830173077303,
+          "imaginary_energy_hartree": -0.008786357395263353,
+          "energy_ev": 3.171440854709201,
+          "width_hartree": 0.017572714790526706,
+          "width_ev": 0.4781779295554853,
+          "lifetime_au": 56.906403587628425,
+          "lifetime_fs": 1.3765000772051448
+        },
+        "logarithmic_speed": 0.00020921182098144228,
+        "derivative_finite_difference_error": 2.0847252972957258e-06,
+        "eigenpair_residual": 6.124646133203341e-14,
+        "coarse_index": 224
+      },
+      "checks": {
+        "grid": {
+          "energy_change": 2.613588512279108e-10,
+          "width_change": 4.1582742804635586e-10
+        },
+        "eta": {
+          "energy_change": 3.826459982203545e-11,
+          "width_change": 3.737681691928785e-11
+        },
+        "overlap_cutoff": {
+          "energy_change": 1.146903989851511e-05,
+          "width_change": 0.00010338566718714678
+        }
+      },
+      "raw_energy_error": 6.056191969544544e-05,
+      "raw_width_relative_error": 0.0036099602959991373,
+      "raw_lifetime_relative_error": 0.0035969753577718144,
+      "corrected_energy_error": 0.0001274304578888774,
+      "corrected_width_relative_error": 0.006768088514433113,
+      "passed": true
+    },
+    {
+      "basis_count": 48,
+      "onset": 5.0,
+      "rank": {
+        "total": 48,
+        "retained": 39,
+        "discarded": 9,
+        "relative_cutoff": 1e-10,
+        "min_eigenvalue": 1.6830752815721998e-12
+      },
+      "selected": {
+        "eta": 0.0007305466816010615,
+        "raw": {
+          "energy_hartree": 0.11675788892760576,
+          "imaginary_energy_hartree": -0.008906066039726764,
+          "energy_ev": 3.177144012874429,
+          "width_hartree": 0.01781213207945353,
+          "width_ev": 0.4846928058784387,
+          "lifetime_au": 56.14151049067899,
+          "lifetime_fs": 1.3579981979678935
+        },
+        "corrected": {
+          "energy_hartree": 0.11651799645188236,
+          "imaginary_energy_hartree": -0.00881747129190346,
+          "energy_ev": 3.1706162060600147,
+          "width_hartree": 0.01763494258380692,
+          "width_ev": 0.4798712340736683,
+          "lifetime_au": 56.70559998977475,
+          "lifetime_fs": 1.3716428704494406
+        },
+        "logarithmic_speed": 0.00025572921078863427,
+        "derivative_finite_difference_error": 1.8988616795030075e-06,
+        "eigenpair_residual": 7.345683464308058e-14,
+        "coarse_index": 229
+      },
+      "checks": {
+        "grid": {
+          "energy_change": 1.7738434332503772e-10,
+          "width_change": 1.1441283684354708e-10
+        },
+        "eta": {
+          "energy_change": 1.4359746725034483e-10,
+          "width_change": 1.0605598690927032e-10
+        },
+        "overlap_cutoff": {
+          "energy_change": 1.7433365845226367e-06,
+          "width_change": 0.00011742849383070478
+        }
+      },
+      "raw_energy_error": 8.215673894385045e-05,
+      "raw_width_relative_error": 0.0067640773664854326,
+      "raw_lifetime_relative_error": 0.006718632019707238,
+      "corrected_energy_error": 0.00015773573677954622,
+      "corrected_width_relative_error": 0.0032508954794358003,
+      "passed": true
+    },
+    {
+      "basis_count": 48,
+      "onset": 6.0,
+      "rank": {
+        "total": 48,
+        "retained": 39,
+        "discarded": 9,
+        "relative_cutoff": 1e-10,
+        "min_eigenvalue": 1.6830752815721998e-12
+      },
+      "selected": {
+        "eta": 0.0008504297807857913,
+        "raw": {
+          "energy_hartree": 0.11676549674545177,
+          "imaginary_energy_hartree": -0.008900117309687768,
+          "energy_ev": 3.1773510321443252,
+          "width_hartree": 0.017800234619375535,
+          "width_ev": 0.4843690594969103,
+          "lifetime_au": 56.17903479269319,
+          "lifetime_fs": 1.358905867427976
+        },
+        "corrected": {
+          "energy_hartree": 0.11651579575128727,
+          "imaginary_energy_hartree": -0.008850579525039995,
+          "energy_ev": 3.17055632194611,
+          "width_hartree": 0.01770115905007999,
+          "width_ev": 0.48167307591326874,
+          "lifetime_au": 56.49347577584086,
+          "lifetime_fs": 1.366511831085699
+        },
+        "logarithmic_speed": 0.0002545674342773335,
+        "derivative_finite_difference_error": 1.6433131152850641e-06,
+        "eigenpair_residual": 1.3059978601254147e-13,
+        "coarse_index": 234
+      },
+      "checks": {
+        "grid": {
+          "energy_change": 1.940007876566341e-10,
+          "width_change": 6.060242134509064e-10
+        },
+        "eta": {
+          "energy_change": 2.009911681533083e-11,
+          "width_change": 7.986611372245989e-12
+        },
+        "overlap_cutoff": {
+          "energy_change": 2.1805004394762073e-05,
+          "width_change": 0.0001304208742006832
+        }
+      },
+      "raw_energy_error": 8.97645567898564e-05,
+      "raw_width_relative_error": 0.006091617979535391,
+      "raw_lifetime_relative_error": 0.0060547348478747764,
+      "corrected_energy_error": 0.00015993643737463592,
+      "corrected_width_relative_error": 0.0004917423629353657,
+      "passed": true
+    },
+    {
+      "basis_count": 96,
+      "onset": 4.0,
+      "rank": {
+        "total": 96,
+        "retained": 39,
+        "discarded": 57,
+        "relative_cutoff": 1e-10,
+        "min_eigenvalue": -1.0691331210213657e-15
+      },
+      "selected": {
+        "eta": 0.0010442250789780034,
+        "raw": {
+          "energy_hartree": 0.1168713856426705,
+          "imaginary_energy_hartree": -0.0088174861783188,
+          "energy_ev": 3.180232415825705,
+          "width_hartree": 0.0176349723566376,
+          "width_ev": 0.47987204423366353,
+          "lifetime_au": 56.705504254652915,
+          "lifetime_fs": 1.3716405547275836
+        },
+        "corrected": {
+          "energy_hartree": 0.11668319254066573,
+          "imaginary_energy_hartree": -0.008814337957382042,
+          "energy_ev": 3.175111420638224,
+          "width_hartree": 0.017628675914764084,
+          "width_ev": 0.4797007093218679,
+          "lifetime_au": 56.72575778436633,
+          "lifetime_fs": 1.3721304641834018
+        },
+        "logarithmic_speed": 0.00018821943294263345,
+        "derivative_finite_difference_error": 1.860914470243901e-07,
+        "eigenpair_residual": 8.066017066086214e-14,
+        "coarse_index": 241
+      },
+      "checks": {
+        "grid": {
+          "energy_change": 4.925682361989203e-10,
+          "width_change": 7.726645573358226e-10
+        },
+        "eta": {
+          "energy_change": 1.889995104864539e-11,
+          "width_change": 6.376010830422274e-13
+        },
+        "overlap_cutoff": {
+          "energy_change": 0.00014958619659821704,
+          "width_change": 1.7894171665300967e-05
+        }
+      },
+      "raw_energy_error": 0.0001956534540085847,
+      "raw_width_relative_error": 0.0032492126816506817,
+      "raw_lifetime_relative_error": 0.0032598044797058634,
+      "corrected_energy_error": 7.4603520038157844e-06,
+      "corrected_width_relative_error": 0.0036050954847428596,
+      "passed": true
+    },
+    {
+      "basis_count": 96,
+      "onset": 5.0,
+      "rank": {
+        "total": 96,
+        "retained": 39,
+        "discarded": 57,
+        "relative_cutoff": 1e-10,
+        "min_eigenvalue": -1.0691331210213657e-15
+      },
+      "selected": {
+        "eta": 0.0006922506188249371,
+        "raw": {
+          "energy_hartree": 0.11677020091545809,
+          "imaginary_energy_hartree": -0.008958537515590862,
+          "energy_ev": 3.177479039131334,
+          "width_hartree": 0.017917075031181725,
+          "width_ev": 0.48754844907170797,
+          "lifetime_au": 55.812681381289316,
+          "lifetime_fs": 1.350044202179613
+        },
+        "corrected": {
+          "energy_hartree": 0.1163979687697471,
+          "imaginary_energy_hartree": -0.008971117320153646,
+          "energy_ev": 3.1673500864412225,
+          "width_hartree": 0.01794223464030729,
+          "width_ev": 0.48823307691342166,
+          "lifetime_au": 55.734417704776675,
+          "lifetime_fs": 1.3481510943750386
+        },
+        "logarithmic_speed": 0.0003724446560006541,
+        "derivative_finite_difference_error": 2.4349802125768483e-06,
+        "eigenpair_residual": 9.810824974169054e-14,
+        "coarse_index": 227
+      },
+      "checks": {
+        "grid": {
+          "energy_change": 1.8430869330732236e-10,
+          "width_change": 9.454052124491241e-12
+        },
+        "eta": {
+          "energy_change": 7.968459225793367e-12,
+          "width_change": 5.313804951612155e-13
+        },
+        "overlap_cutoff": {
+          "energy_change": 2.8628062300209423e-05,
+          "width_change": 0.00027074530615793513
+        }
+      },
+      "raw_energy_error": 9.446872679617913e-05,
+      "raw_width_relative_error": 0.012695584807676408,
+      "raw_lifetime_relative_error": 0.012536427528799354,
+      "corrected_energy_error": 0.00027776341891480594,
+      "corrected_width_relative_error": 0.014117637516201986,
+      "passed": true
+    },
+    {
+      "basis_count": 96,
+      "onset": 6.0,
+      "rank": {
+        "total": 96,
+        "retained": 39,
+        "discarded": 57,
+        "relative_cutoff": 1e-10,
+        "min_eigenvalue": -1.0691331210213657e-15
+      },
+      "selected": {
+        "eta": 0.000801778403062553,
+        "raw": {
+          "energy_hartree": 0.11679176399002182,
+          "imaginary_energy_hartree": -0.008965962642117508,
+          "energy_ev": 3.1780658002819386,
+          "width_hartree": 0.017931925284235015,
+          "width_ev": 0.48795254504339164,
+          "lifetime_au": 55.7664603297872,
+          "lifetime_fs": 1.3489261684092448
+        },
+        "corrected": {
+          "energy_hartree": 0.11637808732508291,
+          "imaginary_energy_hartree": -0.009026813754420104,
+          "energy_ev": 3.166809084771337,
+          "width_hartree": 0.01805362750884021,
+          "width_ev": 0.49126423128411867,
+          "lifetime_au": 55.39053021396039,
+          "lifetime_fs": 1.3398328537585922
+        },
+        "logarithmic_speed": 0.000418128259010847,
+        "derivative_finite_difference_error": 2.1930991580636807e-06,
+        "eigenpair_residual": 6.199429517135837e-14,
+        "coarse_index": 232
+      },
+      "checks": {
+        "grid": {
+          "energy_change": 2.675699106724494e-10,
+          "width_change": 5.827450084983088e-10
+        },
+        "eta": {
+          "energy_change": 1.5517268026066233e-11,
+          "width_change": 4.569868788939502e-12
+        },
+        "overlap_cutoff": {
+          "energy_change": 6.723299062569299e-05,
+          "width_change": 0.0004020091154339593
+        }
+      },
+      "raw_energy_error": 0.00011603180135991153,
+      "raw_width_relative_error": 0.013534939762331222,
+      "raw_lifetime_relative_error": 0.01335419158367157,
+      "corrected_energy_error": 0.00029764486357899966,
+      "corrected_width_relative_error": 0.02041370235636286,
+      "passed": true
+    }
+  ],
+  "energy_spread": 0.00013509153431313925,
+  "width_spread": 0.0002969529275974152,
+  "tolerances": {
+    "energy_hartree": 0.0003,
+    "width_relative": 0.03,
+    "grid_and_eta_hartree": 1e-06
+  },
+  "physical_model": "Single radial s-wave: V=-0.5 (r<2), +0.5 (2<=r<4), 0 (r>=4)",
+  "reference_method": "Exact piecewise propagation matched to uprime=i*sqrt(2E)*u at r=4",
+  "selection": "Interior minimum of |eta*dE/deta|; no use of exact pole in eta selection",
+  "molecular_resonance_validated": false,
+  "provenance": {
+    "driver_sha256": "718a368188ab84c264b72ad4ee164efb1beae11d86136fa82bb46ddd0af6ddcd",
+    "trajectory_sha256": "cbd7d21390c357411839ae831a9da3aa6909c25fc8b0f14253f040e92d23fe2d",
+    "executable_sha256": "6578d0d51fd2cf4fe37820d92c7fe5aa359af2905a4b7582daf50bb9eb269ee5"
+  }
+}

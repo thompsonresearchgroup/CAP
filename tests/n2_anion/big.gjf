@@ -1,0 +1,33 @@
+%mem=4GB
+%nproc=8
+#p rhf/aug-cc-pvtz extrabasis 5d 7f scf=(conventional,tight) output=matrix int=noraff pop=full
+
+N2 aug-cc-pVTZ + 4p5d even-tempered (ratio 1.5)
+
+0 1
+N 0.0 0.0 -0.5488
+N 0.0 0.0  0.5488
+
+N 0
+P 1 1.00
+ 0.03273 1.0
+P 1 1.00
+ 0.02182 1.0
+P 1 1.00
+ 0.01455 1.0
+P 1 1.00
+ 0.00970 1.0
+D 1 1.00
+ 0.1007 1.0
+D 1 1.00
+ 0.0671 1.0
+D 1 1.00
+ 0.0447 1.0
+D 1 1.00
+ 0.0298 1.0
+D 1 1.00
+ 0.0199 1.0
+****
+
+big.mat
+

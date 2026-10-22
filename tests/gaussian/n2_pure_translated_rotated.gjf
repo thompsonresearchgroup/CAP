@@ -1,0 +1,10 @@
+%chk=n2_pure_translated_rotated.chk
+#p rhf/6-31+g(d) 5d 7f scf=conventional output=matrix int=noraff nosymm
+
+N2 translated and rotated pure reference
+
+0 1
+N  1.682457352  -2.317542648   0.682457352
+N  2.317542648  -1.682457352   1.317542648
+
+n2_pure_translated_rotated.mat

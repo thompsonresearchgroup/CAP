@@ -1,121 +1,107 @@
-# Voronoi-CAP Integral Generator (`noCAPs2withCAPs`)
+# Smooth Voronoi CAP
 
-A standalone Fortran program that computes **smooth Voronoi complex absorbing
-potential (CAP) integrals** over a Gaussian basis, plus the per-orbital **APO
-weight vector** `W_p`, and writes them into a Gaussian-format matrix file for
-downstream use (e.g. by SNOWMAN / TDCIS).
+Generate a smooth Voronoi complex absorbing potential (CAP) in a Gaussian
+atomic-orbital basis. The program writes the **real, unscaled matrix W**;
+a downstream calculation applies `H_eff = H - i eta W`.
 
-The CAP follows the smooth Voronoi-isosurface construction of
-**Sommerfeld & Ehara, *J. Chem. Theory Comput.* **11**, 4627 (2015)** (eqs. 6–8):
-
-```
-r_WA(r) = sqrt( Σ_a w_a r_a² / Σ_a w_a )
-w_a     = 1 / (r_a² − r_nearest² + 1 a0²)²
-W(r)    = 0                  if r_WA ≤ r_cut
-W(r)    = (r_WA − r_cut)²    if r_WA  > r_cut
-```
-
-Each primitive-pair integral is evaluated on a single large grid centered at the
-Gaussian product center, using a **Lebedev angular grid** × an **equidistant
-radial grid** (leading trapezoidal term of the Euler–Maclaurin formula, as is
-standard for quantum-chemistry grids).
-
-> **Note on η (CAP strength).** This generator produces **η-independent**
-> integrals — it computes `W(r) = (r_WA − r_cut)²` only. The `−iη` prefactor is
-> applied *downstream* (SNOWMAN multiplies by `−iη` when assembling `H − iηW`).
-
-Authors: L. M. Thompson, A. M. Kinyua, P. D. Simpson — Louisville, KY, 2023–2026.
-
----
+The automatic driver selects the onset and converges the integration grid.
+A successful calculation produces **one matrix file and one log file**.
 
 ## Requirements
 
-Same toolchain as SNOWMAN:
-
-- `gfortran` (Fortran 2008)
-- [**mqcPack**](https://github.com/MQCPack) installed at `$HOME/mqcPack/GNU/`
-  (provides `lib/libmqc.a` and the module files in `mod/`)
-- **Intel MKL** on the linker path (`$MKLROOT` set; links `-lmkl_rt`)
-- OpenMP (the integral loop is threaded)
-
-## Build
+- GNU Fortran with OpenMP and GNU Make.
+- MQCPack **26.9.3**, built with compatible 8-byte default real/integer flags.
+- Intel MKL (`libmkl_rt`) for the current build configuration.
+- Python **3.10 or newer**, NumPy and SciPy.
+- Gaussian is needed to generate new molecular matrix inputs, but not to run
+  the supplied example.
 
 ```bash
-make
+python3 -m pip install -r requirements.txt
+make mqcroot=/path/to/mqcPack MKLLIB=/path/to/mkl/lib
 ```
 
-This produces the `noCAPs2withCAPs` executable. The build flags
-(`-std=f2008 -fdefault-real-8 -fdefault-integer-8 -fopenmp`) and the mqcPack /
-MKL paths live in the `makefile`; edit `mqcroot` there if your mqcPack lives
-elsewhere. `make clean` removes the executable and any `*.o` / `*.mod`.
+On the original workstation, `make` alone uses the installed MQCPack and MKL
+paths. Third-party libraries are not bundled.
 
-## Input
+## Run a calculation
 
-A small text file (passed with `-f`) listing the Gaussian matrix files to
-process. **Line 1** is the number of files; the following lines are the matrix
-file paths. See `input.txt.example`:
-
-```
-1
-H2-_6-31++g.mat
-```
-
-The matrix file is a standard Gaussian unformatted matrix file (`.mat`)
-containing the basis-set / shell data (shell-to-atom map, shell types,
-primitive exponents, contraction coefficients, coordinates, overlap).
-
-## Running
+From the project root:
 
 ```bash
-export OMP_NUM_THREADS=32
-
-./noCAPs2withCAPs \
-    -f input.txt \
-    --lebedev_grid lebedev/lebedev_3470.txt \
-    --r_min 0.0 \
-    --r_max 100.0 \
-    --n_lebedev 3470 \
-    --n_radial 500 \
-    --r_cut 6.22
+python3 cap_auto.py examples/inputs/n2_pure.mat --output runs/n2
 ```
 
-This writes **`CAP_Mat.mat`** in the current directory, containing the analytic
-overlap, the numerical overlap (grid-quality check), the numerical CAP matrix,
-and the APO weight vector `W_p`. Rename it per geometry as you like
-(e.g. `CAP_r6.22.mat`).
+The output directory must be new or empty. This example selects an onset of
+9.75 bohr and produces:
 
-### Command-line options
-
-| Flag | Default | Meaning |
-|---|---|---|
-| `-f <file>` | *(required)* | Input file listing the `.mat` file(s) to process |
-| `--lebedev_grid <file>` | *(required)* | Path to a `lebedev/lebedev_<N>.txt` angular-grid table |
-| `--n_lebedev <N>` | `1454` | Number of Lebedev angular points — **must match** the grid file passed |
-| `--n_radial <N>` | `500` | Number of equidistant radial points (≥ 2) |
-| `--r_min <X>` | `0.0` | Inner radial bound (a₀, ≥ 0) |
-| `--r_max <X>` | `20.0` | Outer radial bound (a₀, > `r_min`) — make it generous for diffuse bases so the CAP tail is captured |
-| `--r_cut <X>` | `3.0` | Voronoi isosurface onset (a₀, ≥ 0); `W = 0` inside `r_cut` |
-| `--validate` | off | Also report numerical-vs-analytical overlap + symmetry checks (grid quality) |
-
-> `--n_lebedev` must equal the point count of the `--lebedev_grid` file you
-> supply. The bundled `lebedev/` folder provides tables from 6 up to 5810
-> points; the Sommerfeld–Ehara reference values are 3470 angular × 500 radial.
-
-## Batch / SLURM
-
-`run_CAP.example` is a SLURM submission script showing a full production run
-(grid choice, threading, output renaming). Adjust the paths, partition, and the
-`R_CUT` / grid parameters for your system, then `sbatch run_CAP.example`.
-
-## Repository contents
-
-```
-noCAPs2withCAPs.f03   the generator (single source file)
-makefile              build (gfortran + mqcPack + MKL)
-lebedev/              Lebedev angular-grid tables (lebedev_<N>.txt)
-input.txt.example     example input list
-run_CAP.example       example SLURM submission script
+```text
+runs/n2/
+  CAP_n2_pure_rcut_9.75.mat
+  CAP_n2_pure_rcut_9.75.log
 ```
 
-Data files (`.mat`, `.chk`, `.log`), per-molecule working directories, and the
-compiled binary are intentionally **not** tracked — see `.gitignore`.
+For your own calculation, replace the input with your Gaussian `.mat` file:
+
+```bash
+python3 cap_auto.py /path/to/n2_sto-3g.mat --output runs/n2_sto-3g
+```
+
+Output names contain the input basename and selected cutoff in bohr. Cutoffs
+use up to six decimal places without trailing zeros. A failed calculation
+writes `CAP_<input-stem>_failed.log` without publishing a final matrix.
+
+The driver automatically selects `r_cut`, keeps `r_min=0`, estimates `r_max`,
+and refines radial/angular resolution and extent. It starts with 200 radial
+and 590 Lebedev points. To change the starting resolution:
+
+```bash
+python3 cap_auto.py molecule.mat --output runs/molecule --radial 300 --angular 1202
+```
+
+The log lists the **final** grid settings, geometry, overlap and CAP matrices,
+traces, and convergence checks. Look for `Quadrature converged: True` and
+`Exit status: 0`. The basic calculation does not choose eta or certify a
+molecular resonance. Add `--diagnostics` only when you need intermediate
+matrices and a JSON report.
+
+## Documentation
+
+- [User guide](docs/user-guide.md): input preparation, manual options, log fields,
+  matrix conventions, and the CAP formula.
+- [Automatic parameters](docs/automation.md): convergence criteria, tolerances,
+  optional reflection calibration, and failure statuses.
+- [Examples](examples/README.md): included Gaussian input and executed output.
+- [Resonance analysis](docs/resonances.md): H/S/W inputs, eta trajectories,
+  widths, and lifetimes.
+- [Validation and tests](docs/validation.md): what has been checked and how to
+  reproduce the tests.
+- [Repository contents](docs/repository.md): files to publish and local archives.
+
+## Tests
+
+```bash
+make test-python                # no Gaussian matrix fixtures or Fortran build needed
+make test                       # full suite; requires the local Gaussian fixtures
+bash tests/run_validation.sh    # checked build + full suite; restores optimized binary
+```
+
+Large generated test matrices are excluded from Git. On a fresh clone,
+regenerate them before the full suite:
+
+```bash
+bash tests/gaussian/run_gaussian_references.sh
+```
+
+That command requires `g16` and `formchk` on PATH; both commands can be overridden
+with `GAUSSIAN_EXE` and `FORMCHK_EXE`. The small N2 example input is bundled.
+
+## Scope and reference
+
+The implementation has been tested against analytical/Gaussian overlaps,
+independent multicenter integration, and an exact-pole radial resonance model.
+A molecular resonance still needs an appropriate electronic Hamiltonian and
+state-specific onset/grid/basis convergence.
+
+The potential follows Sommerfeld and Ehara, *J. Chem. Theory Comput.* **11**,
+4627–4633 (2015), [DOI: 10.1021/acs.jctc.5b00465](https://doi.org/10.1021/acs.jctc.5b00465).

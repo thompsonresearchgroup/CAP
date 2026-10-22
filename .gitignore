@@ -1,26 +1,42 @@
-# Compiled binary / build artifacts
-noCAPs2withCAPs
+# Local archives, editor/service state, and build products
+/.local/
+/.agents/
+/.codex/
+/.aws/
+/.venv/
+__pycache__/
+*.py[cod]
 *.o
 *.mod
+/noCAPs2withCAPs
+/tests/read_cap
+/cap_data.bin
+/density_samples.bin
+/record.txt
 
-# Gaussian data files and outputs (never commit — large, regenerable)
+# Generated calculations (small bundled examples and reference data are exceptions)
 *.mat
-*.chk
-*.gjf
+*.npz
 *.log
-*.err
-
-# Generated CAP output
-CAP_Mat.mat
-CAP_r*.mat
-CAP_r*.log
-
-# Real (non-example) input lists
-input.txt
-input2.txt
-
-# Editor / OS cruft
-*.swp
-*~
-.DS_Store
-.claude/
+*.chk
+*.fchk
+*.rwf
+*.int
+*.d2e
+/tests/results/
+/runs/
+/examples/*/
+!/examples/inputs/
+!/examples/results/
+!/examples/inputs/n2_pure.mat
+!/examples/inputs/model_matrices.npz
+!/examples/results/CAP_n2_pure_rcut_9.75.mat
+!/examples/results/CAP_n2_pure_rcut_9.75.log
+!/tests/gaussian/one_center_spdfghi_pure.fchk
+!/tests/gaussian/one_center_spdfghi_cartesian.fchk
+!/tests/gaussian/one_center_spdfghi_pure_w1.log
+!/tests/gaussian/one_center_spdfghi_cartesian_w1.log
+!/tests/gaussian/n2_pure_w1_gauss100.log
+!/tests/gaussian/n2_pure_w1_gauss200.log
+!/tests/gaussian/n2_pure_w1_gauss300.log
+*.backup-*

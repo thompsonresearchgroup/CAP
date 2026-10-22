@@ -1,0 +1,28 @@
+%chk=one_center_spdfghi_pure.chk
+#p rhf/gen scf=conventional 5d 7f gfinput output=matrix int=noraff nosymm
+
+One-center uncontracted and contracted SPDFGHI, pure harmonics
+
+0 1
+He 0.0 0.0 0.0
+
+He 0
+S 2 1.0
+  1.2000000000  0.7000000000
+  0.3000000000  0.4000000000
+SP 2 1.0
+  0.9000000000  0.6000000000  0.5000000000
+  0.2200000000  0.3000000000  0.4000000000
+D 1 1.0
+  0.7000000000  1.0000000000
+F 1 1.0
+  0.6000000000  1.0000000000
+G 1 1.0
+  0.5000000000  1.0000000000
+H 1 1.0
+  0.4000000000  1.0000000000
+I 1 1.0
+  0.3500000000  1.0000000000
+****
+
+one_center_spdfghi_pure.mat

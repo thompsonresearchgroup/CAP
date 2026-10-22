@@ -1,0 +1,31 @@
+%nprocshared=2
+%mem=1GB
+%chk=he2_spdfghi_cartesian.chk
+#p rhf/gen guess=only 6d 10f gfinput output=matrix int=noraff nosymm
+
+Off-axis two-center SPDFGHI, Cartesian functions
+
+0 1
+He 0.0 0.0 0.0
+He 1.1 0.7 0.4
+
+He 0
+S 2 1.0
+  1.2000000000  0.7000000000
+  0.3000000000  0.4000000000
+SP 2 1.0
+  0.9000000000  0.6000000000  0.5000000000
+  0.2200000000  0.3000000000  0.4000000000
+D 1 1.0
+  0.7000000000  1.0000000000
+F 1 1.0
+  0.6000000000  1.0000000000
+G 1 1.0
+  0.5000000000  1.0000000000
+H 1 1.0
+  0.4000000000  1.0000000000
+I 1 1.0
+  0.3500000000  1.0000000000
+****
+
+he2_spdfghi_cartesian.mat

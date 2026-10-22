@@ -1,0 +1,11 @@
+%chk=n2_cartesian.chk
+#p rhf/6-31+g(d) 6d 10f scf=conventional output=matrix int=noraff nosymm
+
+N2 diffuse Cartesian reference
+
+0 1
+N 0.0 0.0 -0.55
+N 0.0 0.0  0.55
+
+n2_cartesian.mat
+

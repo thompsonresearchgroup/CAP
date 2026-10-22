@@ -1,0 +1,12 @@
+%mem=4GB
+%nproc=8
+#p rhf/cc-pvdz 5d 7f scf=(conventional,tight) output=matrix int=noraff pop=full
+
+N2 DZP
+
+0 1
+N 0.0 0.0 -0.5488
+N 0.0 0.0  0.5488
+
+dzp.mat
+

@@ -1,0 +1,20 @@
+%chk=n2_spd_bruteforce.chk
+#p rhf/gen 5d 7f units=au scf=conventional output=matrix int=noraff nosymm
+
+N2 one uncontracted s, p, d per atom for brute-force CAP integrals
+
+0 1
+N 0.0 0.0 -1.0
+N 0.0 0.0  1.0
+
+N 0
+S 1 1.00
+ 0.5 1.0
+P 1 1.00
+ 0.4 1.0
+D 1 1.00
+ 0.3 1.0
+****
+
+n2_spd_bruteforce.mat
+

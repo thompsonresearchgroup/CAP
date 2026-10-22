@@ -1,0 +1,11 @@
+%chk=h2_rotated.chk
+#p rhf/6-311++g(3df,3pd) 5d 7f scf=conventional output=matrix int=noraff nosymm
+
+H2 diffuse pure reference
+
+0 1
+H 1.58 -1.44 0.50
+H 2.42 -2.56 0.50
+
+h2_rotated.mat
+

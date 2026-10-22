@@ -1,0 +1,10 @@
+%chk=h_uhf.chk
+#p uhf/6-31g scf=conventional output=matrix int=noraff nosymm
+
+Open-shell density convention check
+
+0 2
+H 0.0 0.0 0.0
+
+h_uhf.mat
+
